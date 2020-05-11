@@ -19,6 +19,35 @@ public abstract class Carton {
         this.columnas = columnas;
         this.matriz = new int[filas][columnas];
     }
+
+    public int[][] getMatriz() {
+        return matriz;
+    }
+
+    public void setMatriz(int[][] matriz) {
+        this.matriz = matriz;
+    }
+
+    public int getFilas() {
+        return filas;
+    }
+
+    public void setFilas(int filas) {
+        this.filas = filas;
+    }
+
+    public int getColumnas() {
+        return columnas;
+    }
+
+    public void setColumnas(int columnas) {
+        this.columnas = columnas;
+    }
+
+    @Override
+    public String toString() {
+        return ("to build");
+    }
     
     
     
