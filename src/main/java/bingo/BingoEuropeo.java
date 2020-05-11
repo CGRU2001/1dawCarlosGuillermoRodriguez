@@ -18,6 +18,27 @@ public final class BingoEuropeo extends Bingo {
         this.carton = new CartonEuropeo();
         this.bombo = new BomboEuropeo();
     }
+
+    public CartonEuropeo getCarton() {
+        return carton;
+    }
+
+    public void setCarton(CartonEuropeo carton) {
+        this.carton = carton;
+    }
+
+    public BomboEuropeo getBombo() {
+        return bombo;
+    }
+
+    public void setBombo(BomboEuropeo bombo) {
+        this.bombo = bombo;
+    }
+
+    @Override
+    public String toString() {
+        return "Estás jugando al bingo europeo. Tu cartón es el siguiente:\n" + carton.toString();
+    }
     
     
     
