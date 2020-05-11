@@ -5,10 +5,25 @@
  */
 package bingo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author carlos
  */
 public abstract class Bombo {
+    private List<Integer> listaBolas;
+
+    public Bombo(int numeroBolas) {
+        listaBolas = new ArrayList<>();
+        
+        for (int i = 0; i < numeroBolas; i++) {
+            listaBolas.add((i + 1));
+        }
+        
+    }
+    
+    
     
 }
