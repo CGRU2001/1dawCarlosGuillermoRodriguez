@@ -24,6 +24,21 @@ public abstract class Bombo {
         
     }
     
+    //Getters and setters
+
+    public List<Integer> getListaBolas() {
+        return listaBolas;
+    }
+
+    public void setListaBolas(List<Integer> listaBolas) {
+        this.listaBolas = listaBolas;
+    }
+
+    @Override
+    public String toString() {
+        return listaBolas.toString();
+    }
+    
     
     
 }
