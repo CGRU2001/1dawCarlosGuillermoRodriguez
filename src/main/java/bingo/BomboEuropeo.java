@@ -15,4 +15,12 @@ public final class BomboEuropeo extends Bombo {
     public BomboEuropeo() {
         super(90);
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+    
+    
+    
 }
