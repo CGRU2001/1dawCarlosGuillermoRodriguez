@@ -16,6 +16,19 @@ public final class CartonEuropeo extends Carton{
     public CartonEuropeo(int filas, int columnas) {
         super(filas, columnas);
     }
+
+    public static int getFILAS() {
+        return FILAS;
+    }
+
+    public static int getCOLUMNAS() {
+        return COLUMNAS;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
     
     
     
