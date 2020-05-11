@@ -10,5 +10,9 @@ package bingo;
  * @author carlos
  */
 public final class BomboEuropeo extends Bombo {
-    
+    public static final int BOLAS = 90;
+
+    public BomboEuropeo() {
+        super(90);
+    }
 }
