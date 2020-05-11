@@ -17,7 +17,8 @@ public final class CartonEuropeo extends Carton{
         super(filas, columnas);
     }
 
-
+    //We don't need getters, because we have final attributes
+    
     @Override
     public String toString() {
         return super.toString();
