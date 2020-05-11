@@ -9,6 +9,17 @@ package bingo;
  *
  * @author carlos
  */
-public class Carton {
+public abstract class Carton {
+    private int[][] matriz;
+    private int filas;
+    private int columnas;
+
+    public Carton(int filas, int columnas) {
+        this.filas = filas;
+        this.columnas = columnas;
+        this.matriz = new int[filas][columnas];
+    }
+    
+    
     
 }
