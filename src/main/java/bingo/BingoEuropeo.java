@@ -10,5 +10,15 @@ package bingo;
  * @author carlos
  */
 public final class BingoEuropeo extends Bingo {
+    private CartonEuropeo carton;
+    private BomboEuropeo bombo;
+
+    public BingoEuropeo(String name) {
+        super(name);
+        this.carton = new CartonEuropeo();
+        this.bombo = new BomboEuropeo();
+    }
+    
+    
     
 }

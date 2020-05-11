@@ -13,8 +13,8 @@ public final class CartonEuropeo extends Carton{
     public static final int FILAS = 3;
     public static final int COLUMNAS  = 9;
 
-    public CartonEuropeo(int filas, int columnas) {
-        super(filas, columnas);
+    public CartonEuropeo() {
+        super(FILAS, COLUMNAS);
     }
 
     //We don't need getters, because we have final attributes
