@@ -12,9 +12,15 @@ package bingo;
 public final class CartonAmericano extends Carton {
     public static final int FILAS = 5;
     public static final int COLUMNAS = 5;
+    private final Patron premio;
 
-    public CartonAmericano(int filas, int columnas) {
+    public CartonAmericano(int filas, int columnas, Patron p) {
         super(filas, columnas);
+        premio = p;
+    }
+
+    public Patron getPremio() {
+        return premio;
     }
 
     @Override
