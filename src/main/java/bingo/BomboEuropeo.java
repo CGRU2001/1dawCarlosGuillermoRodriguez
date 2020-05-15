@@ -28,7 +28,4 @@ public final class BomboEuropeo extends Bombo {
             super.getListaBolas().add(i);
         }
     }
-    
-    
-    
 }

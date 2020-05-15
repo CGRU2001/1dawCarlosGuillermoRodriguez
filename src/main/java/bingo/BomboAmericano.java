@@ -20,5 +20,10 @@ public final class BomboAmericano extends Bombo {
     public String toString() {
         return super.toString();
     }
-    
+    @Override
+    public void llenarBolas(int nuBolas) {
+        for (int i = 0; i < nuBolas; i++) {
+            super.getListaBolas().add(i);
+        }
+    }
 }
