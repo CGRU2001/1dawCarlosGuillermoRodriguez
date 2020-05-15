@@ -18,10 +18,24 @@ public abstract class Bombo {
     public Bombo(int numeroBolas) {
         listaBolas = new ArrayList<>();
         
-        for (int i = 0; i < numeroBolas; i++) {
-            listaBolas.add((i + 1));
-        }
+        llenarBolas(numeroBolas);
         
+    }
+    
+    public abstract void llenarBolas(int nuBolas);
+    
+    public int sacarBola(){
+        return listaBolas.remove(0);
+    }
+    
+    public int numBolasDentro(){
+        return listaBolas.size();
+    }
+    public boolean vacio(){
+        if(listaBolas.size() <= 0){
+            return true;
+        }
+        return false;
     }
     
     //Getters and setters
@@ -29,6 +43,7 @@ public abstract class Bombo {
     public List<Integer> getListaBolas() {
         return listaBolas;
     }
+    
 
     public void setListaBolas(List<Integer> listaBolas) {
         this.listaBolas = listaBolas;
