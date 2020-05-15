@@ -6,6 +6,7 @@
 package bingo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,6 +20,8 @@ public abstract class Bombo {
         listaBolas = new ArrayList<>();
         
         llenarBolas(numeroBolas);
+        
+        Collections.shuffle(listaBolas);
         
     }
     
