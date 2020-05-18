@@ -16,16 +16,11 @@ import java.util.List;
 public abstract class Bombo {
     private List<Integer> listaBolas;
 
-    public Bombo(int numeroBolas) {
+    public Bombo() {
         listaBolas = new ArrayList<>();
-        
-        llenarBolas(numeroBolas);
-        
-        Collections.shuffle(listaBolas);
-        
     }
     
-    public abstract void llenarBolas(int nuBolas);
+    public abstract void llenarBolas();
     
     public int sacarBola(){
         return listaBolas.remove(0);
@@ -35,10 +30,7 @@ public abstract class Bombo {
         return listaBolas.size();
     }
     public boolean vacio(){
-        if(listaBolas.size() <= 0){
-            return true;
-        }
-        return false;
+        return listaBolas.isEmpty();
     }
     
     //Getters and setters
@@ -48,9 +40,9 @@ public abstract class Bombo {
     }
     
 
-    public void setListaBolas(List<Integer> listaBolas) {
-        this.listaBolas = listaBolas;
-    }
+//    public void setListaBolas(List<Integer> listaBolas) {
+//        this.listaBolas = listaBolas;
+//    }
 
     @Override
     public String toString() {

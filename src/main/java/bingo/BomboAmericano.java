@@ -5,6 +5,8 @@
  */
 package bingo;
 
+import java.util.Collections;
+
 /**
  *
  * @author carlos
@@ -12,8 +14,8 @@ package bingo;
 public final class BomboAmericano extends Bombo {
     public static final int CANTIDADBOLAS = 75;
 
-    public BomboAmericano(int numeroBolas) {
-        super(numeroBolas);
+    public BomboAmericano() {
+        super();
     }
 
     @Override
@@ -21,9 +23,17 @@ public final class BomboAmericano extends Bombo {
         return super.toString();
     }
     @Override
-    public void llenarBolas(int nuBolas) {
-        for (int i = 0; i < nuBolas; i++) {
-            super.getListaBolas().add(i);
+    public void llenarBolas() {
+        for (int i = 0; i < CANTIDADBOLAS; i++) {
+            super.getListaBolas().add(i + 1);
         }
+        Collections.shuffle(super.getListaBolas());
+    }
+    public static void main(String[] args) {
+        Bombo b = new BomboAmericano();
+        b.llenarBolas();
+        System.out.println(b);
+        System.out.println(b.sacarBola());
+        System.out.println(b);
     }
 }

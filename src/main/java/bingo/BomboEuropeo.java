@@ -5,6 +5,9 @@
  */
 package bingo;
 
+import java.util.Collection;
+import java.util.Collections;
+
 
 /**
  *
@@ -14,7 +17,8 @@ public final class BomboEuropeo extends Bombo {
     public static final int BOLAS = 90;
 
     public BomboEuropeo() {
-        super(90);
+        super();
+        
     }
 
     @Override
@@ -23,9 +27,17 @@ public final class BomboEuropeo extends Bombo {
     }
 
     @Override
-    public void llenarBolas(int nuBolas) {
-        for (int i = 0; i < nuBolas; i++) {
-            super.getListaBolas().add(i);
+    public void llenarBolas() {
+        for (int i = 0; i < BOLAS; i++) {
+            super.getListaBolas().add(i + 1);
         }
+        Collections.shuffle(super.getListaBolas());
+    }
+    public static void main(String[] args) {
+        BomboEuropeo b = new BomboEuropeo();
+        b.llenarBolas();
+        System.out.println(b);
+        System.out.println(b.sacarBola());
+        System.out.println(b);
     }
 }
