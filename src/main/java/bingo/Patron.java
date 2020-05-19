@@ -15,7 +15,9 @@ import java.util.List;
  */
 public enum Patron {
     FORMA_X(equis(), "X"),
-    FORMA_F(efe(), "F");
+    FORMA_F(efe(), "F"),
+    LLENO(full(), "Lleno"),
+    VACIO(empty(), "Vacío");
     private List<Point> casillas;
     private String descripcion;
 
@@ -66,5 +68,17 @@ public enum Patron {
         tmp.add(new Point(4,0));
         
         return tmp;
+    }
+    private static ArrayList<Point> full(){
+        ArrayList<Point> tmp = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                tmp.add(new Point(i,j));
+            }
+        }
+        return tmp;
+    }
+    private static ArrayList<Point> empty(){
+        return new ArrayList<>();
     }
 }

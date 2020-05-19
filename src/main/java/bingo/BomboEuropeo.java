@@ -33,11 +33,4 @@ public final class BomboEuropeo extends Bombo {
         }
         Collections.shuffle(super.getListaBolas());
     }
-    public static void main(String[] args) {
-        BomboEuropeo b = new BomboEuropeo();
-        b.llenarBolas();
-        System.out.println(b);
-        System.out.println(b.sacarBola());
-        System.out.println(b);
-    }
 }
