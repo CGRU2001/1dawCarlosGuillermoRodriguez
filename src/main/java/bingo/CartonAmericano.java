@@ -7,6 +7,7 @@ package bingo;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -18,9 +19,10 @@ public final class CartonAmericano extends Carton {
     public static final int COLUMNAS = 5;
     private final Patron premio;
 
-    public CartonAmericano(Patron p) {
+    public CartonAmericano() {
         super(FILAS, COLUMNAS);
-        premio = p;
+        premio = genPatron();
+        generarCarton();
     }
 
     public Patron getPremio() {
@@ -43,8 +45,29 @@ public final class CartonAmericano extends Carton {
             super.getMatriz()[(int)casillas.get(i).getX()][(int)casillas.get(i).getY()] = r.nextInt(75);
         }
     }
+    private Patron genPatron(){
+        Random aleatorio = new Random();
+
+        switch (aleatorio.nextInt(5)) {
+            case 0:
+                return Patron.VACIO;
+                
+            case 1:
+                return Patron.FORMA_X;
+               
+            case 2:
+                return Patron.FORMA_F;
+                
+            case 3:
+                return Patron.LLENO;
+                
+            default:
+                return Patron.UNO;
+        }
+    }
     public static void main(String[] args) {
-        Carton c = new CartonAmericano(Patron.VACIO);
+        CartonAmericano c = new CartonAmericano();
+        c.generarCarton();
         System.out.println(c);
     }
 }

@@ -17,7 +17,8 @@ public enum Patron {
     FORMA_X(equis(), "X"),
     FORMA_F(efe(), "F"),
     LLENO(full(), "Lleno"),
-    VACIO(empty(), "Vacío");
+    VACIO(empty(), "Vacío"),
+    UNO(uno(), "Uno");
     private List<Point> casillas;
     private String descripcion;
 
@@ -80,5 +81,10 @@ public enum Patron {
     }
     private static ArrayList<Point> empty(){
         return new ArrayList<>();
+    }
+    private static ArrayList<Point> uno(){
+        ArrayList<Point> tmp = new ArrayList<>();
+        tmp.add(new Point(2,2));
+        return tmp;
     }
 }
