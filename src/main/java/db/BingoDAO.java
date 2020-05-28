@@ -46,7 +46,7 @@ public class BingoDAO implements Bingo{
             if (res.next()) {
                 // Recogemos los datos de la persona, guardamos en un objeto
                 b.setId(res.getString("pk"));
-                b.setCarton(crearCarton(res.getString("nombre")));
+                b.setCarton(crearCarton(res.getString("carton")));
                 b.setFecha(res.getDate("fecha").toLocalDate());
                 b.setName(res.getString("Persona"));
                 return b;
@@ -57,17 +57,35 @@ public class BingoDAO implements Bingo{
     }
 
     @Override
-    public int insertGame(Bingo b) throws SQLException {
+    public int insertGame(BingoAmericano b) throws SQLException {
+         int numFilas = 0;
+        String sql = "insert into juegos values (?,?,?,?,?)";
+
+        
+            // Instanciamos el objeto PreparedStatement para inserción
+            // de datos. Sentencia parametrizada
+            try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+                // Establecemos los parámetros de la sentencia
+                prest.setString(1, b.getId());
+                prest.setDate(2, Date.valueOf(b.getFecha()));
+                prest.setString(3, convertCarton(b.getCarton()));
+                prest.setString(4, convertBombo(b.getBombo()));
+                prest.setString(5, b.getName());
+
+                numFilas = prest.executeUpdate();
+            }
+            return numFilas;
+        
+    }
+
+    @Override
+    public int deleteGame(BingoAmericano b) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int deleteGame(Bingo b) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean updateGame(int pk, Bingo b) throws SQLException {
+    public boolean updateGame(int pk, BingoAmericano b) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -77,14 +95,39 @@ public class BingoDAO implements Bingo{
         String linea = s;
         tokens = linea.split(",");
         int aum = 0;
-        int[][] tmp = new int[3][9];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 9; j++) {
+        int[][] tmp = c.getMatriz();
+        for (int i = 0; i < tmp.length; i++) {
+            for (int j = 0; j < tmp[i].length; j++) {
                 tmp[i][j] = Integer.parseInt(tokens[aum]);
                 aum++;
             }
         }
         c.setMatriz(tmp);
         return c;
+    }
+    private String convertCarton(CartonAmericano c){
+        String finale = "";
+        int cont = 0;
+        for (int i = 0; i < c.getMatriz().length; i++) {
+            for (int j = 0; j < c.getMatriz()[i].length; j++) {
+                finale += c.getMatriz()[i][j];
+                cont++;
+                if(cont != 25){
+                    finale += ',';
+                    
+                }else{
+                    break;
+                }
+            }
+        }
+        
+        return finale;
+    }
+    private String convertBombo(BomboAmericano b){
+        String finale = "";
+        for (int i = 0; i < b.getListaBolas().size(); i++) {
+            finale += b.getListaBolas().get(i) + ",";
+        }
+        return finale;
     }
 }

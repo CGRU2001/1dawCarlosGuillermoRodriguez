@@ -16,9 +16,9 @@ public interface Bingo {
 
     BingoAmericano findByPk(String pk) throws SQLException;
 
-    int insertGame(Bingo b) throws SQLException;
+    int insertGame(BingoAmericano b) throws SQLException;
 
-    int deleteGame (Bingo b) throws SQLException;
+    int deleteGame (BingoAmericano b) throws SQLException;
     
-    boolean updateGame(int pk, Bingo b) throws SQLException;
+    boolean updateGame(int pk, BingoAmericano b) throws SQLException;
 }
