@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package bingo;
 
+import db.*;
 /**
  *
  * @author carlos
@@ -12,5 +14,6 @@ package bingo;
 public class JuegoBingo {
     public static void main(String[] args) {
         //Place main content here
+        Conexion.getInstance();
     }
 }

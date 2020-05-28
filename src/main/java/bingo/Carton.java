@@ -19,6 +19,16 @@ public abstract class Carton {
         this.columnas = columnas;
         this.matriz = new int[filas][columnas];
     }
+    public boolean cantarBingo(){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if(matriz[i][j] != 0){
+                    return false;
+                } 
+            }
+        }
+        return true;
+    }
 
     public int[][] getMatriz() {
         return matriz;
@@ -44,6 +54,7 @@ public abstract class Carton {
         this.columnas = columnas;
     }
 
+    
     @Override
     public String toString() {
         String txt = "";

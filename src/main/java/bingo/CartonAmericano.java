@@ -45,6 +45,7 @@ public final class CartonAmericano extends Carton {
             super.getMatriz()[(int)casillas.get(i).getX()][(int)casillas.get(i).getY()] = r.nextInt(75);
         }
     }
+    
     private Patron genPatron(){
         Random aleatorio = new Random();
 
@@ -64,10 +65,5 @@ public final class CartonAmericano extends Carton {
             default:
                 return Patron.UNO;
         }
-    }
-    public static void main(String[] args) {
-        CartonAmericano c = new CartonAmericano();
-        c.generarCarton();
-        System.out.println(c);
     }
 }
