@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public interface Bingo {
 
-    Bingo findByPk(int pk) throws SQLException;
+    BingoAmericano findByPk(String pk) throws SQLException;
 
     int insertGame(Bingo b) throws SQLException;
 
