@@ -30,6 +30,16 @@ public abstract class Carton {
         return true;
     }
 
+    public void tachar(int n){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if(matriz[i][j] == n){
+                    matriz[i][j] = 0;
+                }
+            }
+        }
+    }
+    
     public int[][] getMatriz() {
         return matriz;
     }
