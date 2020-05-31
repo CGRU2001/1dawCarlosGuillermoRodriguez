@@ -43,12 +43,6 @@ public class JuegoBingo {
                 ba.setName(nombre);
             }
         } while (!(lectura.equalsIgnoreCase("Si") || lectura.equalsIgnoreCase("No")));
-        if (ba.getName().equals(null) || ba.getName().equals("")) {
-            System.out.println("Puesto que no pudimos cargar el nombre anteriormente, introduce uno nuevo ahora");
-            System.out.print("Introduce tu nombre: ");
-            nombre = s.nextLine();
-            ba.setName(nombre);
-        }
 
         do {
             System.out.println("Pulsa intro para una nueva bola, o bien, pulsa s para guardar partida: ");
