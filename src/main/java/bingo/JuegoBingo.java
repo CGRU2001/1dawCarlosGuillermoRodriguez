@@ -34,7 +34,7 @@ public class JuegoBingo {
             if (lectura.equalsIgnoreCase("si")) {
                 System.out.print("Introduce el número de serie de la partida: ");
                 serial = s.nextLine();
-                restore(ba, serial);
+                ba = restore(ba, serial);
             } else if (lectura.equalsIgnoreCase("no")) {
 
                 System.out.println("Creando nueva partida...");
@@ -43,6 +43,12 @@ public class JuegoBingo {
                 ba.setName(nombre);
             }
         } while (!(lectura.equalsIgnoreCase("Si") || lectura.equalsIgnoreCase("No")));
+        if (ba.getName().equals(null) || ba.getName().equals("")) {
+            System.out.println("Puesto que no pudimos cargar el nombre anteriormente, introduce uno nuevo ahora");
+            System.out.print("Introduce tu nombre: ");
+            nombre = s.nextLine();
+            ba.setName(nombre);
+        }
 
         do {
             System.out.println("Pulsa intro para una nueva bola, o bien, pulsa s para guardar partida: ");
@@ -87,7 +93,8 @@ public class JuegoBingo {
             return ba;
         } catch (Exception ex) {
             System.out.println("Error: No se pudo aplicar el recurso. Error " + ex.getMessage() + ". Se generará una partida nueva.");
-            return new BingoAmericano(new CartonAmericano(), new BomboAmericano(), "");
+            System.exit(0);
+            return null;
         }
     }
 }

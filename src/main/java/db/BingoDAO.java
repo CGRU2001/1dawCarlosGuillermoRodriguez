@@ -48,6 +48,7 @@ public class BingoDAO implements Bingo{
                 b.setId(res.getString("pk"));
                 b.setCarton(crearCarton(res.getString("carton")));
                 b.setFecha(res.getDate("fecha").toLocalDate());
+                b.setBombo(convertBombo(res.getString("bombo")));
                 b.setName(res.getString("Persona"));
                 return b;
             }
@@ -70,7 +71,7 @@ public class BingoDAO implements Bingo{
                 prest.setString(1, b.getId());
                 prest.setDate(2, Date.valueOf(b.getFecha()));
                 prest.setString(3, convertCarton(b.getCarton()));
-                prest.setString(4, convertBombo(b.getBombo()));
+                prest.setString(4, b.getBombo().toString());
                 prest.setString(5, b.getName());
 
                 numFilas = prest.executeUpdate();
@@ -123,11 +124,14 @@ public class BingoDAO implements Bingo{
         
         return finale;
     }
-    private String convertBombo(BomboAmericano b){
-        String finale = "";
-        for (int i = 0; i < b.getListaBolas().size(); i++) {
-            finale += b.getListaBolas().get(i) + ",";
+    private BomboAmericano convertBombo(String b){
+        BomboAmericano ba = new BomboAmericano();
+        String[] tokens;
+        String linea = b;
+        tokens = linea.split(",");
+        for (int i = 0; i < tokens.length; i++) {
+            ba.getListaBolas().add(Integer.parseInt(tokens[i]));
         }
-        return finale;
+        return ba;   
     }
 }

@@ -46,7 +46,11 @@ public abstract class Bombo {
 
     @Override
     public String toString() {
-        return listaBolas.toString();
+        String s = "";
+        for (int i = 0; i < listaBolas.size(); i++) {
+            s += listaBolas.get(i) + ",";
+        }
+        return s;
     }
     
     
