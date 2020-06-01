@@ -81,14 +81,20 @@ public class BingoDAO implements Bingo{
     }
 
     @Override
-    public void deleteGame(BingoAmericano b) throws SQLException {
-        String sql = "delete from juegos where pk=?";
+    public int deleteGame(BingoAmericano b) throws SQLException {
+        int numFilas = 0;
+
+        String sql = "delete from juegos where pk = ?";
+
+        // Sentencia parametrizada
         try (PreparedStatement prest = con.prepareStatement(sql)) {
-            // Preparamos la sentencia parametrizada
+
+            // Establecemos los parámetros de la sentencia
             prest.setString(1, b.getId());
-            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
-            prest.executeQuery();
+            // Ejecutamos la sentencia
+            numFilas = prest.executeUpdate();
         }
+        return numFilas;
     }
 
     @Override

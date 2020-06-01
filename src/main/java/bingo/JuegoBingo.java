@@ -75,7 +75,7 @@ public class JuegoBingo {
         BingoDAO bd = new BingoDAO();
         try {
             bd.insertGame(ba);
-            System.out.println("El código de tu partida es :" + ba.getId() + ". No lo pierdas, puesto que puedes necesitarlo para restaurar tu partida más tarde");
+            System.out.println("El código de tu partida es: " + ba.getId() + ". No lo pierdas, puesto que puedes necesitarlo para restaurar tu partida más tarde");
             System.exit(0);
         } catch (SQLException ex) {
             Logger.getLogger(JuegoBingo.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,10 +86,13 @@ public class JuegoBingo {
         BingoDAO bd = new BingoDAO();
         try {
             ba = bd.findByPk(serial);
+            bd.deleteGame(ba);
             System.out.println("----- RESTAURAR PARTIDA -----");
             System.out.println("Bienvenido de nuevo, " + ba.getName());
             System.out.println("Tu cartón era: ");
             System.out.println(ba.getCarton());
+            bd.deleteGame(ba);
+            
             return ba;
         } catch (Exception ex) {
             System.out.println("Error: No se pudo aplicar el recurso. Error " + ex.getMessage() + ". Se generará una partida nueva.");

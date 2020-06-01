@@ -18,7 +18,7 @@ public interface Bingo {
 
     int insertGame(BingoAmericano b) throws SQLException;
 
-    void deleteGame (BingoAmericano b) throws SQLException;
+    int deleteGame (BingoAmericano b) throws SQLException;
     
     boolean updateGame(int pk, BingoAmericano b) throws SQLException;
 }
