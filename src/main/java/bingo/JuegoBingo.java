@@ -22,7 +22,7 @@ public class JuegoBingo {
         BingoAmericano ba = new BingoAmericano(new CartonAmericano(), new BomboAmericano(), "");
         Scanner s = new Scanner(System.in);
         String nombre, lectura, serial, val;
-        int bola;
+        int bola, iteraccion = 0;
         System.out.println("Bienvenido al bingo. ");
         System.out.println("-- El BINGO EUROPEO ESTÁ DESHABILITADO DE MANERA TEMPORAL, POR TANTO, SÓLO SE PODRÁ JUGAR BINGO AMERICANO --");
 
@@ -54,9 +54,15 @@ public class JuegoBingo {
             System.out.println("Pulsa intro para una nueva bola, o bien, pulsa s para guardar partida: ");
             val = s.nextLine();
             if (val.equalsIgnoreCase("s")) {
-                dump(ba);
-            } else {
+                if(iteraccion > 5){
+                    dump(ba);
+                }
+                else{
+                    System.out.println("No se puede guardar la partida, debes sacar al menos 5 bolas del bombo");
+                }
                 
+            } else {
+                iteraccion++;
                 bola = ba.getBombo().sacarBola();
                 System.out.println("Ha salido la bola " + bola);
                 ba.getCarton().tachar(bola);
@@ -95,7 +101,7 @@ public class JuegoBingo {
             
             return ba;
         } catch (Exception ex) {
-            System.out.println("Error: No se pudo aplicar el recurso. Error " + ex.getMessage() + ". Se generará una partida nueva.");
+            System.out.println("Error: No se pudo aplicar el recurso. Error " + ex.getMessage() + ". Inténtelo más tarde.");
             System.exit(0);
             return null;
         }
