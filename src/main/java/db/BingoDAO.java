@@ -81,8 +81,14 @@ public class BingoDAO implements Bingo{
     }
 
     @Override
-    public int deleteGame(BingoAmericano b) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteGame(BingoAmericano b) throws SQLException {
+        String sql = "delete from juegos where pk=?";
+        try (PreparedStatement prest = con.prepareStatement(sql)) {
+            // Preparamos la sentencia parametrizada
+            prest.setString(1, b.getId());
+            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
+            prest.executeQuery();
+        }
     }
 
     @Override
